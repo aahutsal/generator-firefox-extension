@@ -19,26 +19,33 @@ module.exports = function(grunt) {
 
         shell: {
             run: {
-                command: 'cfx run --pkgdir=<%%= config.app %>'
+                command: 'jpm run'
             },
             xpi: {
                 command: [
-                    'cfx xpi --pkgdir=<%%= config.app %>',
-                    'mv <%%= config.name %>.xpi <%%= config.dist %>',
-                    'wget --post-file=<%%= config.dist %>/<%%= config.name %>.xpi http://localhost:8888/ || echo>/dev/null'
-                ].join('&&')
+                    'jpm xpi',
+                ]
             },
+	    post: {
+                command: [
+                    'jpm post --post-url http://localhost:8888/',
+                ]		
+	    }, 
+	    postwatch: {
+                command: [
+                    'jpm postwatch --post-url http://localhost:8888/',
+                ]		
+	    }, 
             build: {
                 command: [
-                    'cfx xpi --pkgdir=<%%= config.app %>',
+                    'jpm xpi <%%= config.app %>',
                     'mv <%%= config.name %>.xpi <%%= config.dist %>'
                 ].join('&&')
             }
         },
         watch: {
             xpi: {
-                files: ['<%%= config.app %>/**/*'],
-                tasks: ['shell:xpi']
+                tasks: ['shell:postwatch']
             }
         },
         wiredep: {
