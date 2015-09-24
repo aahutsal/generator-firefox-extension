@@ -19,21 +19,21 @@ module.exports = function(grunt) {
 
         shell: {
             run: {
-                command: 'jpm run'
+                command: 'jpm run <%%= config.app %>'
             },
             xpi: {
                 command: [
-                    'jpm xpi',
+                    'jpm xpi <%%= config.app %>',
                 ]
             },
 	    post: {
                 command: [
-                    'jpm post --post-url http://localhost:8888/',
+                    'jpm post --post-url http://localhost:8888/ <%%= config.app %>',
                 ]		
 	    }, 
 	    postwatch: {
                 command: [
-                    'jpm postwatch --post-url http://localhost:8888/',
+                    'jpm postwatch --post-url http://localhost:8888/ <%%= config.app %>',
                 ]		
 	    }, 
             build: {
