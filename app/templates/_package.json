@@ -8,5 +8,6 @@
         "grunt-shell": "^1.1.2",
         "load-grunt-tasks": "^3.1.0",
         "grunt-wiredep": "^2.0.0"
-    }
+    },
+    "main": "app/lib/main.js"
 }
