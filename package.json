@@ -30,7 +30,7 @@
     "ff"
   ],
   "dependencies": {
-    "yeoman-generator": "^5.0.0",
+    "yeoman-generator": "^7.5.0",
     "chalk": "^0.5.0",
     "yosay": "^1.0.2",
     "underscore.string": "^3.0.3"
